@@ -1,3 +1,6 @@
+// const { generateDependencyReport } = require('@discordjs/voice');
+// console.log(generateDependencyReport());
+
 import { Client, ClientOptions } from 'discord.js'
 import 'dotenv/config'
 
@@ -20,5 +23,3 @@ interactionCreate(client)
 messageCreate(client)
 
 client.login(token)
-
-console.log(client)
