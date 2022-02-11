@@ -8,6 +8,6 @@ export default (client: Client): void => {
 
         await client.application.commands.set(Commands)
 
-        console.log(`${client.user.username} entered the mainframe...`)
+        console.log(`${client.user.tag} entered the mainframe...`)
     })
 }
