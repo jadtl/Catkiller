@@ -1,7 +1,7 @@
-// const { generateDependencyReport } = require('@discordjs/voice');
-// console.log(generateDependencyReport());
+const { generateDependencyReport } = require('@discordjs/voice');
+console.log(generateDependencyReport());
 
-import { Client, ClientOptions } from 'discord.js'
+import { Client } from 'discord.js'
 import 'dotenv/config'
 
 import interactionCreate from './listeners/interactionCreate'
@@ -15,7 +15,7 @@ console.log("Bot is starting...")
 
 const client = new Client({
     partials: ['MESSAGE', 'CHANNEL', 'REACTION'],
-    intents: ['DIRECT_MESSAGES', 'DIRECT_MESSAGE_REACTIONS', 'GUILD_MESSAGES', 'GUILD_MESSAGE_REACTIONS', 'GUILDS']
+    intents: ['DIRECT_MESSAGES', 'DIRECT_MESSAGE_REACTIONS', 'GUILD_MESSAGES', 'GUILD_MESSAGE_REACTIONS', 'GUILDS', 'GUILD_VOICE_STATES']
 });
 
 ready(client)

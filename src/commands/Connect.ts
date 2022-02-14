@@ -1,8 +1,7 @@
 import { BaseCommandInteraction, Client } from 'discord.js'
-import '@discordjs/voice'
+import { joinVoiceChannel } from '@discordjs/voice'
 
 import { reply as reply, error, Command } from '../Command'
-import { joinVoiceChannel } from '@discordjs/voice'
 
 export const Connect: Command = {
     name: 'connect',
@@ -41,6 +40,6 @@ export const Connect: Command = {
             adapterCreator: guild.voiceAdapterCreator
         })
         
-        reply(interaction, `Connected to voice channel ${channel.name}`)
+        reply(interaction, `Connected to voice channel **${channel.name}**`)
     }
 }
