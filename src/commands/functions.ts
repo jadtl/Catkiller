@@ -33,12 +33,12 @@ export function connect(client: Client, interaction: BaseCommandInteraction): { 
     connection.on(Discord.VoiceConnectionStatus.Destroyed, () => {
         player[id].pause()
     })
-    connection.subscribe(player[parseInt(guild.id)])
+    connection.subscribe(player[id])
 
     return { channel: channel, connection: connection }
 }
 
-export async function play(client: Client, interaction: BaseCommandInteraction, result: any): Promise<void> {
+export async function play(client: Client, interaction: BaseCommandInteraction, result: { title: string, url: string, duration: string }): Promise<void> {
     const state = connect(client, interaction)
     if (!state) return
     const id = parseInt(state.channel.guild.id)

@@ -45,7 +45,7 @@ export const Search: Command = {
                 await interaction.editReply({ content: 'Search aborted.', components: [] })
             } else {
                 const result = results[parseInt(i.customId)]
-                play(client, interaction, { title: result.title, url: result.url, duration: result.duration_raw })
+                play(client, interaction, { title: result.title, url: result.url, duration: `${result.duration_raw}` })
             }
         })
     }

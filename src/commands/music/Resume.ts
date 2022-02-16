@@ -18,6 +18,6 @@ export const Resume: Command = {
             interaction.editReply({ content: 'No song to resume.' })
             return
         }
-        interaction.editReply({ content: `Resuming **${song.title}**.` })
+        interaction.editReply({ content: `Resuming **${song.title}** \`${song.duration}\`.` })
     }
 }

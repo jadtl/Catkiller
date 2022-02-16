@@ -15,6 +15,6 @@ export const Play: Command = {
         
         const result = (await yt.search(`${query.value}`))[0]
 
-        play(client, interaction, result)
+        play(client, interaction, { title: result.title, url: result.url, duration: `${result.duration_raw}` })
     }
 }

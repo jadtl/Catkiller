@@ -14,7 +14,7 @@ export const NowPlaying: Command = {
         if (!result) {
             interaction.editReply({ content: `No song is currently playing.` })
         } else {
-            interaction.editReply({ content: `Now playing **${result.title}**.` })
+            interaction.editReply({ content: `**Now playing**:\n ${result.title} \`${result.duration}\`.` })
         }
     }
 }

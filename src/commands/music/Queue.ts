@@ -17,7 +17,7 @@ export const Queue: Command = {
         }
         const list = queue[id].list()
 
-        interaction.editReply({ content: `**Songs queue**:\n${list
+        interaction.editReply({ content: `**Songs queue**:\n${list.reverse()
             .map(song => `**${list.indexOf(song) + 1}**. ${song.title} \`${song.duration}\`.`)
             .join('\n')}`
         })
