@@ -1,15 +1,16 @@
-const { generateDependencyReport } = require('@discordjs/voice');
+import { generateDependencyReport } from '@discordjs/voice'
 console.log(generateDependencyReport());
 
 import { Client } from 'discord.js'
 import 'dotenv/config'
 
-import interactionCreate from './listeners/interactionCreate'
-import ready from './listeners/ready'
-import messageCreate from './listeners/messageCreate'
+import interactionCreate from './listeners/client/interactionCreate'
+import ready from './listeners/client/ready'
+import messageCreate from './listeners/client/messageCreate'
+import guildCreate from './listeners/client/guildCreate'
 
-const token = process.env.BOT_TOKEN
-if (!token) throw new Error("BOT_TOKEN environment variable missing!")
+const token = process.env.TOKEN
+if (!token) throw new Error("TOKEN environment variable missing!")
 
 console.log("Bot is starting...")
 
@@ -18,8 +19,10 @@ const client = new Client({
     intents: ['DIRECT_MESSAGES', 'DIRECT_MESSAGE_REACTIONS', 'GUILD_MESSAGES', 'GUILD_MESSAGE_REACTIONS', 'GUILDS', 'GUILD_VOICE_STATES']
 });
 
-ready(client)
+//registering client listeners
 interactionCreate(client)
 messageCreate(client)
+guildCreate(client)
+ready(client)
 
 client.login(token)
