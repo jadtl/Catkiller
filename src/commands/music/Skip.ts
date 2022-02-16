@@ -1,5 +1,4 @@
 import { BaseCommandInteraction, Client } from 'discord.js'
-import * as Discord from '@discordjs/voice'
 
 import { Command } from '../../Command'
 import { nowPlaying, player } from '../state'

@@ -1,7 +1,7 @@
 import { BaseCommandInteraction, Client } from 'discord.js'
 
 import { Command } from '../../Command'
-import { nowPlaying, player, queue } from '../state'
+import { queue } from '../state'
 
 export const Queue: Command = {
     name: 'queue',

@@ -1,5 +1,4 @@
 import { AudioPlayer } from '@discordjs/voice'
-import internal from 'stream'
 
 import { Queue } from '../data/Queue'
 
