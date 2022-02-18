@@ -39,12 +39,17 @@ export function connect(client: Client, interaction: BaseCommandInteraction): { 
 }
 
 export async function play(client: Client, interaction: BaseCommandInteraction, result: { title: string, url: string, duration: string }): Promise<void> {
-    const state = connect(client, interaction)
-    if (!state) return
-    const id = parseInt(state.channel.guild.id)
+    if (!interaction.guild) return
+    const id = parseInt(interaction.guild.id)
+    const connection = Discord.getVoiceConnection(interaction.guild.id)
+
+    if (!connection) {
+        const state = connect(client, interaction)
+        if (!state) return
+        state.connection.subscribe(player[id])
+    }
 
     if (queue[id].isEmpty && !nowPlaying[id]) {
-        state.connection.subscribe(player[id])
         const stream = ytdl(result.url, { filter: 'audioonly', quality: 'highest', highWaterMark: 1 << 25 })
         const resource = Discord.createAudioResource(stream)
         player[id].play(resource)
