@@ -5,7 +5,8 @@ Catkiller is a work-in-progress multi-purpose Discord bot written in Typescript 
 ## Features
 ### Music
 - **Providers**: Youtube
-- **Commands**: ![](https://imgur.com/a/7DMV1ll)
+- **Commands**: ![](https://i.imgur.com/Ktijn8B.png)
+![](https://i.imgur.com/3vft9Lh.png)
 
 ### And more to come!
 
