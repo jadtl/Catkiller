@@ -33,26 +33,31 @@ export default (client: Client): void => {
             .reduce((p, c) => p + c)}\n-----------`)
 
         // Update status
-        const statuses_text_raw = process.env.STATUSES_TEXT
-        const statuses_type_raw = process.env.STATUSES_TYPE
-        if (!statuses_text_raw || !statuses_type_raw) throw Error('Environment variables STATUSES_TEXT or STATUSES_TYPE missing!')
-        const statuses_text = statuses_text_raw.split(',')
-        const statuses_type = statuses_type_raw.split(',')
+        const statusesTextRaw = process.env.STATUSES_TEXT
+        const statusesTypeRaw = process.env.STATUSES_TYPE
+        if (!statusesTextRaw || !statusesTypeRaw) throw Error('Environment variables STATUSES_TEXT or STATUSES_TYPE missing!')
+        const statusesText = statusesTextRaw.split(',')
+        const statusesType = statusesTypeRaw.split(',')
+        setStatus(client, statusesText, statusesType)
         setInterval(() => {
-            if (!client) return
-            if (!client.user) return
-            const new_status = Math.floor(Math.random() * statuses_text.length);
-            switch (statuses_type[new_status]) {
-                case 'LISTENING':
-                    client.user.setActivity(statuses_text[new_status], { type: 'LISTENING' })
-                    break
-                case 'WATCHING':
-                    client.user.setActivity(statuses_text[new_status], { type: 'WATCHING' })
-                    break
-                case 'PLAYING':
-                    client.user.setActivity(statuses_text[new_status], { type: 'PLAYING' })
-                    break
-            }
+            setStatus(client, statusesText, statusesType)
         }, 300000)
     })
+}
+
+function setStatus(client: Client, statusesText: Array<string>, statusesType: Array<string>): void {
+    if (!client) return
+    if (!client.user) return
+    const newStatus = Math.floor(Math.random() * statusesText.length);
+    switch (statusesType[newStatus]) {
+        case 'LISTENING':
+            client.user.setActivity(statusesText[newStatus], { type: 'LISTENING' })
+            break
+        case 'WATCHING':
+            client.user.setActivity(statusesText[newStatus], { type: 'WATCHING' })
+            break
+        case 'PLAYING':
+            client.user.setActivity(statusesText[newStatus], { type: 'PLAYING' })
+            break
+    }
 }
