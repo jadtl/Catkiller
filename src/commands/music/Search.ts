@@ -20,7 +20,7 @@ export const Search: Command = {
         
         await interaction.editReply({ 
             content: results
-                .map((result) => `**${results.indexOf(result) + 1}**. ${result.title} \`${result.duration_raw}\`.`)
+                .map((result) => `${results.indexOf(result) + 1}. **${result.title}** \`${result.duration_raw}\`.`)
                 .join('\n'),
             components: [ 
                 new MessageActionRow().addComponents(results.map((result) => new MessageButton()

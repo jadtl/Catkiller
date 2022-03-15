@@ -17,7 +17,7 @@ export const Skip: Command = {
             interaction.editReply({ content: 'No song to skip.' })
         } else {
             nowPlaying[id] = undefined
-            interaction.editReply({ content: `**Skipped** ${song.title} \`${song.duration}\`.` })
+            interaction.editReply({ content: `Skipped **${song.title}** \`${song.duration}\`.` })
         }
     }
 }

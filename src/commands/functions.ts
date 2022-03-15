@@ -55,10 +55,10 @@ export async function play(client: Client, interaction: BaseCommandInteraction, 
         player[id].play(resource)
         nowPlaying[id] = result
         
-        interaction.editReply({ content: `Now playing **${result.title}**.`, components: [] }) 
+        interaction.editReply({ content: `Now playing **${result.title}** \`${result.duration}\`.`, components: [] }) 
     } else {
         queue[id].enqueue(result)
 
-        interaction.editReply({ content: `Queued **${result.title}**.`, components: [] }) 
+        interaction.editReply({ content: `Queued **${result.title}** \`${result.duration}\`.`, components: [] }) 
     }
 }
