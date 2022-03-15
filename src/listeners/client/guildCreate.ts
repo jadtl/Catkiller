@@ -9,7 +9,7 @@ import idle from '../audio/idle'
 export default (client: Client): void => {
     client.on('guildCreate', async (guild: Guild) => {
         const id = parseInt(guild.id)
-        //update global variables for newly joined guild
+        // Update global variables for newly joined guild
         timeout[id] = undefined
         queue[id] = new Queue()
         player[id] = Discord.createAudioPlayer()

@@ -19,7 +19,7 @@ const client = new Client({
     intents: ['DIRECT_MESSAGES', 'DIRECT_MESSAGE_REACTIONS', 'GUILD_MESSAGES', 'GUILD_MESSAGE_REACTIONS', 'GUILDS', 'GUILD_VOICE_STATES']
 });
 
-//registering client listeners
+// Registering client listeners
 interactionCreate(client)
 messageCreate(client)
 guildCreate(client)
