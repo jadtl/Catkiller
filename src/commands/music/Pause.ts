@@ -17,6 +17,6 @@ export const Pause: Command = {
             interaction.editReply({ content: 'No song to pause' })
             return
         }
-        interaction.editReply({ content: `**Paused** ${song.title} \`${song.duration}\`.` })
+        interaction.editReply({ content: `Paused **${song.title}** \`${song.duration}\`.` })
     }
 }
