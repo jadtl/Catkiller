@@ -53,6 +53,6 @@ export default (client: Client): void => {
                     client.user.setActivity(statuses_text[new_status], { type: 'PLAYING' })
                     break
             }
-        }, 60000)
+        }, 300000)
     })
 }
