@@ -41,7 +41,7 @@ export default (client: Client): void => {
         setInterval(() => {
             if (!client) return
             if (!client.user) return
-            const new_status = Math.floor(Math.random() * (statuses_text.length - 1) + 1);
+            const new_status = Math.floor(Math.random() * statuses_text.length);
             switch (statuses_type[new_status]) {
                 case 'LISTENING':
                     client.user.setActivity(statuses_text[new_status], { type: 'LISTENING' })
